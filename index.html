@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Cümlenin Öğeleri Etkinliği</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        html {
+            height: -webkit-fill-available;
+        }
+
+        body {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+            padding: 0.5rem;
+            touch-action: manipulation;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+        }
+
+        .title {
+            font-size: clamp(1.25rem, 5vw, 1.75rem);
+            font-weight: bold;
+            text-align: center;
+            color: #e53e3e;
+            margin: 1rem 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            padding: 0 0.5rem;
+        }
+
+        .toolbar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding: 0 0.5rem;
+        }
+
+        .button {
+            padding: 0.75rem 0.5rem;
+            border: none;
+            border-radius: 0.75rem;
+            background: #e53e3e;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+            font-weight: 600;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            box-shadow: 0 2px 4px rgba(229, 62, 62, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+        }
+
+        .button:active {
+            transform: scale(0.98);
+            background: #c53030;
+        }
+
+        .button:disabled {
+            background: #feb2b2;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .sentence-container {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            padding: 1rem;
+            margin: 0 0.5rem 1rem 0.5rem;
+            border: 2px solid #e53e3e;
+            overflow: hidden;
+        }
+
+        .sentence {
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            color: #1a202c;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            min-height: 60px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            background: #f7fafc;
+            border-radius: 0.75rem;
+            touch-action: manipulation;
+        }
+
+        .word {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            touch-action: manipulation;
+            transition: transform 0.2s ease;
+        }
+
+        .word:active {
+            transform: scale(0.98);
+            background: #f7fafc;
+        }
+
+        .elements-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .element-box {
+            background: white;
+            border: 1px solid #e53e3e;
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            min-height: 80px;
+            touch-action: manipulation;
+        }
+
+        .element-title {
+            font-size: 0.875rem;
+            color: #e53e3e;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .element-content {
+            min-height: 50px;
+            border: 1px dashed #feb2b2;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            align-items: center;
+            background: #f7fafc;
+        }
+
+        .word-in-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.5rem;
+            margin: 0.125rem;
+            color: #1a202c;
+            background: white;
+            border-radius: 0.375rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .delete-word {
+            cursor: pointer;
+            color: #e53e3e;
+            margin-left: 4px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px 8px;
+            min-width: 24px;
+            min-height: 24px;
+        }
+
+        .result {
+            text-align: center;
+            margin: 1rem 0.5rem;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            font-weight: bold;
+            display: none;
+            font-size: 0.875rem;
+        }
+
+        .result.success {
+            background: #f0fff4;
+            border: 1px solid #48bb78;
+            color: #2f855a;
+        }
+
+        .result.error {
+            background: #fff5f5;
+            border: 1px solid #e53e3e;
+            color: #c53030;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            margin: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .word-assignments {
+            margin: 1rem 0;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            background: #f7fafc;
+        }
+
+        .word-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            padding: 0.75rem;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .word-item select {
+            flex: 1;
+            padding: 0.5rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            background: white;
+            font-size: 0.875rem;
+            -webkit-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
+
+        .preview-analysis {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f7fafc;
+            border-radius: 0.75rem;
+        }
+
+        .preview-item {
+            margin-bottom: 0.75rem;
+            padding: 0.75rem;
+            background: white;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            font-size: 0.875rem;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        @media (hover: hover) {
+            .button:hover {
+                background: #c53030;
+                transform: translateY(-1px);
+            }
+
+            .word:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .delete-word:hover {
+                color: #c53030;
+            }
+        }
+
+        @supports (-webkit-touch-callout: none) {
+            .container {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+        <h1 class="title">Cümlenin Öğeleri Etkinliği</h1>
+
+        <div class="toolbar">
+            <button id="addButton" class="button">Cümle Ekle</button>
+            <button id="editButton" class="button">Düzenle</button>
+            <button id="deleteButton" class="button">Sil</button>
+            <button id="exportButton" class="button">Dışa Aktar</button>
+            <button id="importButton" class="button">İçe Aktar</button>
+            <input type="file" id="fileInput" accept=".json">
+        </div>
+
+        <div id="sentenceContainer" class="sentence-container">
+            <div id="currentSentence" class="sentence"></div>
+            <div class="elements-container">
+                <div class="element-box">
+                    <div class="element-title">Özne</div>
+                    <div class="element-content" data-element="Özne"></div>
+                </div>
+                <div class="element-box">
+                    <div class="element-title">Yüklem</div>
+                    <div class="element-content" data-element="Yüklem"></div>
+                </div>
+                <div class="element-box">
+                    <div class="element-title">Belirtili Nesne</div>
+                    <div class="element-content" data-element="Belirtili Nesne"></div>
+                </div>
+                <div class="element-box">
+                    <div class="element-title">Belirtisiz Nesne</div>
+                    <div class="element-content" data-element="Belirtisiz Nesne"></div>
+                </div>
+                <div class="element-box">
+                    <div class="element-title">Dolaylı Tümleç</div>
+                    <div class="element-content" data-element="Dolaylı Tümleç"></div>
+                </div>
+                <div class="element-box">
+                    <div class="element-title">Edat Tümleci</div>
+                    <div class="element-content" data-element="Edat Tümleci"></div>
+                </div>
+                <div class="element-box">
+                    <div class="element-title">Zarf Tümleci</div>
+                    <div class="element-content" data-element="Zarf Tümleci"></div>
+                </div>
+                <div class="element-box">
+                    <div class="element-title">Cümle Dışı Öğe</div>
+                    <div class="element-content" data-element="Cümle Dışı Öğe"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="toolbar">
+            <button id="prevButton" class="button">← Önceki</button>
+            <button id="nextButton" class="button">Sonraki →</button>
+            <button id="checkButton" class="button">Kontrol Et</button>
+        </div>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <h2 style="margin-bottom: 1rem; font-size: 1.25rem; font-weight: bold;">Cümle Ekle ve Analiz Et</h2>
+            <div>
+                <input type="text" id="newSentence" class="form-input" placeholder="Cümleyi girin">
+                <button id="splitSentence" class="button">Sözcüklere Ayır</button>
+            </div>
+
+            <div id="wordAssignments" class="word-assignments" style="display: none;">
+                <h3 style="margin-bottom: 1rem; font-size: 1.125rem; font-weight: bold;">Sözcüklerin Öğelerini Belirleyin:</h3>
+                <div id="wordList"></div>
+            </div>
+
+            <div id="analysisPreview" class="preview-analysis" style="display: none;">
+                <h3 style="margin-bottom: 1rem; font-size: 1.125rem; font-weight: bold;">Analiz Önizleme:</h3>
+                <div id="previewContent"></div>
+            </div>
+
+            <div class="toolbar" style="margin-top: 1rem">
+                <button id="saveNewSentence" class="button">Kaydet</button>
+                <button id="cancelNewSentence" class="button">İptal</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

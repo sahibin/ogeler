@@ -1,0 +1,259 @@
+{
+"sentences": [
+{
+"text": "Sayısız kitabın bulunduğu bu kütüphaneyi geçen yüzyılın başlarında Avrupalı bilim adamları ziyaret etmişler.",
+"analysis": {
+"Özne": ["Avrupalı bilim adamları"],
+"Belirtili Nesne": ["Sayısız kitabın bulunduğu bu kütüphaneyi"],
+"Zarf Tümleci": ["geçen yüzyılın başlarında"],
+"Yüklem": ["ziyaret etmişler"]
+}
+},
+{
+"text": "Her sanatçı başlangıçta büyük sanatçıları taklit ederek işe başlar.",
+"analysis": {
+"Özne": ["Her sanatçı"],
+"Dolaylı Tümleç": ["işe"],
+"Zarf Tümleci": ["başlangıçta", "büyük sanatçıları taklit ederek"],
+"Yüklem": ["başlar"]
+}
+},
+{
+"text": "Şehir dışına çıkmak bu insanları olumlu şekilde etkileyecektir.",
+"analysis": {
+"Özne": ["Şehir dışına çıkmak"],
+"Belirtili Nesne": ["bu insanları"],
+"Zarf Tümleci": ["olumlu şekilde"],
+"Yüklem": ["etkileyecektir"]
+}
+},
+{
+"text": "Mor dövmelerle işlendi göğsümüze karlı dağların şanlı bayrağı.",
+"analysis": {
+"Özne": ["karlı dağların şanlı bayrağı"],
+"Dolaylı Tümleç": ["göğsümüze"],
+"Edat Tümleci": ["Mor dövmelerle"],
+"Yüklem": ["işlendi"]
+}
+},
+{
+"text": "Az önce bir çocuğun ağlaya ağlaya koştuğunu gördüm.",
+"analysis": {
+"Gizli Özne": ["Ben"],
+"Belirtili Nesne": ["bir çocuğun ağlaya ağlaya koştuğunu"],
+"Zarf Tümleci": ["Az önce"],
+"Yüklem": ["gördüm"]
+}
+},
+{
+"text": "Seni kaybetme korkusundan hiç söz etmiyor.",
+"analysis": {
+"Gizli Özne": ["O"],
+"Dolaylı Tümleç": ["seni kaybetme korkusundan"],
+"Zarf Tümleci": ["hiç"],
+"Yüklem": ["söz etmiyor"]
+}
+},
+{
+"text": "Balinalar, okyanustaki en büyük canlılardır.",
+"analysis": {
+"Özne": ["Balinalar"],
+"Yüklem": ["okyanustaki en büyük canlılardır"]
+}
+},
+{
+"text": "Yağmur bastırınca herkes hemen içeri kaçtı.",
+"analysis": {
+"Özne": ["herkes"],
+"Zarf Tümleci": ["Yağmur bastırınca", "hemen", "içeri"],
+"Yüklem": ["kaçtı"]
+}
+},
+{
+"text": "Arabasının başına gelenleri ona ben anlatamadım.",
+"analysis": {
+"Gizli Özne": ["ben"],
+"Belirtili Nesne": ["Arabasının başına gelenleri"],
+"Dolaylı Tümleç": ["ona"],
+"Yüklem": ["anlatamadım"]
+}
+},
+{
+"text": "Dün okulda yaşanan olay herkesin keyfini kaçırdı.",
+"analysis": {
+"Özne": ["Dün okulda yaşanan olay"],
+"Belirtili Nesne": ["herkesin keyfini"],
+"Yüklem": ["kaçırdı"]
+}
+},
+{
+"text": "Sait Faik, öykülerinde gerçekçi bir çizgi yakalamıştır.",
+"analysis": {
+"Özne": ["Sait Faik"],
+"Dolaylı Tümleç": ["öykülerinde"],
+"Belirtisiz Nesne": ["gerçekçi bir çizgi"],
+"Yüklem": ["yakalamıştır"]
+}
+},
+{
+"text": "Aldığınız ürünler istendiğiniz şekilde sarıldı.",
+"analysis": {
+"Sözde Özne": ["Aldığınız ürünler"],
+"Zarf Tümleci": ["istendiğiniz şekilde"],
+"Yüklem": ["sarıldı"]
+}
+},
+{
+"text": "Koşturuyoruz ufuktan ufka, gençlik günlerindeki gibi.",
+"analysis": {
+"Gizli Özne": ["Biz"],
+"Dolaylı Tümleç": ["ufuktan ufka"],
+"Zarf Tümleci": ["gençlik günlerindeki gibi"],
+"Yüklem": ["koşturuyoruz"]
+}
+},
+{
+"text": "Babalarından kalan yüklü mirası medeni bir şekilde paylaştılar.",
+"analysis": {
+"Gizli Özne": ["Onlar"],
+"Belirtili Nesne": ["Babalarından kalan yüklü mirası"],
+"Zarf Tümleci": ["medeni bir şekilde"],
+"Yüklem": ["paylaştılar"]
+}
+},
+{
+"text": "Kitapların dilinden anlamak, onlarla içli dışlı olmaya bağlıdır.",
+"analysis": {
+"Özne": ["Kitapların dilinden anlamak"],
+"Dolaylı Tümleç": ["onlarla içli dışlı olmaya"],
+"Yüklem": ["bağlıdır"]
+}
+},
+{
+"text": "Burada yoldan denize kadar inen büyük kayalar üstünde oturup, akşam saatlerini geçirmeyi severdi.",
+"analysis": {
+"Gizli Özne": ["O"],
+"Belirtili Nesne": ["Burada yoldan denize kadar inen büyük kayalar üstünde oturup, akşam saatlerini geçirmeyi"],
+"Yüklem": ["severdi"]
+}
+},
+{
+"text": "Bu ilaçlar sadece bugünkü tıbbın ve kimyanın zaferi değildir.",
+"analysis": {
+"Özne": ["Bu ilaçlar"],
+"Yüklem": ["bugünkü tıbbın ve kimyanın zaferi değildir"]
+}
+},
+{
+"text": "Bütün öğrenciler benim gibi davranıyor bugünlerde.",
+"analysis": {
+"Özne": ["Bütün öğrenciler"],
+"Zarf Tümleci": ["benim gibi", "bugünlerde"],
+"Yüklem": ["davranıyor"]
+}
+},
+{
+"text": "Eyvah! Yemeği ocakta unuttum.",
+"analysis": {
+"Gizli Özne": ["Ben"],
+"Belirtili Nesne": ["Yemeği"],
+"Dolaylı Tümleç": ["ocakta"],
+"Cümle Dışı Unsur": ["Eyvah!"],
+"Yüklem": ["unuttum"]
+}
+},
+{
+"text": "Doğru insanlar doğru konuşurlar.",
+"analysis": {
+"Özne": ["Doğru insanlar"],
+"Zarf Tümleci": ["doğru"],
+"Yüklem": ["konuşurlar"]
+}
+},
+{
+"text": "Yoksulların içinde bulunduğu sıkıntıları bir nebze olsa azaltmak için elinden geldiğince onlara yardım ederdi.",
+"analysis": {
+"Gizli Özne": ["O"],
+"Dolaylı Tümleç": ["onlara"],
+"Edat Tümleci": ["Yoksulların içinde bulunduğu sıkıntıları bir nebze olsa azaltmak için"],
+"Zarf Tümleci": ["elinden geldiğince"],
+"Yüklem": ["yardım ederdi"]
+}
+},
+{
+"text": "Suyun insanlık için önemi son yıllarda daha iyi anlaşılır oldu.",
+"analysis": {
+"Özne": ["Suyun insanlık için önemi"],
+"Zarf Tümleci": ["daha iyi", "son yıllarda"],
+"Yüklem": ["anlaşılır oldu"]
+}
+},
+{
+"text": "Yazar en güzel şiirlerini deniz kıyısındaki küçük evde mehtaplı gecelerde yazdığını söylüyor.",
+"analysis": {
+"Özne": ["Yazar"],
+"Belirtili Nesne": ["en güzel şiirlerini deniz kıyısındaki küçük evde mehtaplı gecelerde yazdığını"],
+"Yüklem": ["söylüyor"]
+}
+},
+{
+"text": "Düşünce, insana doğuştan gelmiş gizli bir güç değildir.",
+"analysis": {
+"Özne": ["Düşünce"],
+"Yüklem": ["insana doğuştan gelmiş gizli bir güç değildir"]
+}
+},
+{
+"text": "Dün gece gittiler yurt dışından gelen konuklarımız.",
+"analysis": {
+"Özne": ["yurt dışından gelen konuklarımız"],
+"Zarf Tümleci": ["Dün gece"],
+"Yüklem": ["gittiler"]
+}
+},
+{
+"text": "Aramıza katılanlar arasında böyle düşünen çok azdı.",
+"analysis": {
+"Özne": ["Böyle düşünen"],
+"Dolaylı Tümleç": ["Aramıza katılanlar arasında"],
+"Zarf Tümleci": ["çok"],
+"Yüklem": ["azdı"]
+}
+},
+{
+"text": "Halk türkülerinin ezgisiyle geçmişti çocukluğu.",
+"analysis": {
+"Özne": ["çocukluğu"],
+"Edat Tümleci": ["Halk türkülerinin ezgisiyle"],
+"Yüklem": ["geçmişti"]
+}
+},
+{
+"text": "Tanıyamadığım binlerce bitki türü var Amazonlarda.",
+"analysis": {
+"Özne": ["Tanıyamadığım binlerce bitki türü"],
+"Dolaylı Tümleç": ["Amazonlarda"],
+"Yüklem": ["var"]
+}
+},
+{
+"text": "Dünyaca tanınan yönetmen birçok filminde gerçek hikâyeleri ele alır.",
+"analysis": {
+"Özne": ["Dünyaca tanınan yönetmen"],
+"Dolaylı Tümleç": ["birçok filminde"],
+"Belirtili Nesne": ["gerçek hikâyeleri"],
+"Yüklem": ["ele alır"]
+}
+},
+{
+"text": "Sanatçı, oğlunu kaybedince bütün hayatını çocuklara yardım etmek için harcadı.",
+"analysis": {
+"Özne": ["Sanatçı"],
+"Zarf Tümleci": ["oğlunu kaybedince"],
+"Belirtili Nesne": ["bütün hayatını"],
+"Edat Tümleci": ["çocuklara yardım etmek için"],
+"Yüklem": ["harcadı"]
+}
+}
+]
+}
